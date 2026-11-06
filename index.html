@@ -192,7 +192,7 @@ table.cmp th{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-
 #s6 .sh{margin-bottom:10px}
 #s6 .wrap{display:grid;grid-template-columns:830px 1fr;gap:18px;flex:1;min-height:0}
 #runCanvas{width:830px;height:468px;display:block;border-radius:10px;border:1px solid var(--line);background:#f4f7fa}
-#tlCanvas{width:830px;height:104px;display:block;border-radius:8px;border:1px solid var(--line);background:#eef3f7;cursor:pointer}
+#tlCanvas{width:830px;height:125px;display:block;border-radius:8px;border:1px solid var(--line);background:#ffffff;cursor:pointer}
 .ctrl{display:flex;gap:8px;align-items:center;margin:8px 0}
 .ctrl input[type=range]{flex:1}
 .hud{display:flex;flex-direction:column;gap:9px;min-width:0}
@@ -468,7 +468,7 @@ h2{font-weight:700;letter-spacing:0}
 #s5 .vias3>div{padding:19px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center}
 #s5 .vias3 .vh{font-size:32px;font-weight:700;border-bottom:3px solid var(--line)}
 #s5 .vias3 .vk{font-weight:700;color:#4f6475;font-size:23px}
-#s6 #simSpeed,#s6 #simReset,#s6 #simScrub,#s6 .ghostRow,#s6 .hud .row:has(#togAura),#s6 #subRow{display:none!important}
+#s6 #simSpeed,#s6 #simReset,#s6 #simScrub,#s6 #subRow{display:none!important}
 #s6 .hudlbl,#s6 .gauge span,#s6 .legend span{font-size:16px}
 #s6 .read b{font-size:27px}
 #s6 .read span{font-size:14px}
@@ -515,6 +515,32 @@ h2{font-weight:700;letter-spacing:0}
 #s7 .itab[data-t="3"] .mcard .m{font-size:30px}
 #s7 .itab[data-t="3"] .mcard .f{font-size:27px}
 #s8 .cards4 p{font-size:32px}
+#s4 .lane{opacity:0;transition:opacity .6s ease}
+#s4 .lane.on{opacity:1}
+#s5 .vias3a{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:16px}
+.viaCol{background:var(--panel);border:1px solid var(--line);border-top:6px solid var(--c);border-radius:12px;padding:16px 20px;opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.viaCol.on{opacity:1;transform:none}
+.viaCol h3{font-size:34px;color:var(--ct);margin-bottom:8px}
+.vr{display:grid;grid-template-columns:1fr;gap:3px;padding:10px 0;border-top:1px solid var(--line)}
+.vr b{font-size:16px;color:#4f6475;letter-spacing:.03em;text-transform:uppercase}
+.vr span{font-size:26px;font-weight:600;line-height:1.15;color:#0f2233}
+.vtrack{position:relative;height:18px;margin-top:6px;background:#e3ebf2;border-radius:9px;overflow:hidden}
+.vtrack i{position:absolute;top:2px;left:0;width:14px;height:14px;border-radius:50%;background:var(--c);animation:vRun linear infinite}
+@keyframes vRun{from{left:-14px}to{left:100%}}
+.vtank{height:18px;margin-top:6px;background:#e3ebf2;border-radius:9px;overflow:hidden}
+.vtank i{display:block;height:100%;background:var(--c);transform-origin:left;animation:vDrain 8s linear infinite}
+.vtank .t1{--fim:.05}
+.vtank .t2{--fim:.45}
+.vtank .t3{--fim:.92}
+@keyframes vDrain{0%{transform:scaleX(1)}80%,100%{transform:scaleX(var(--fim))}}
+.vo2{display:flex;gap:8px;margin-top:6px;height:28px;align-items:center}
+.vo2 i{font-style:normal;font-size:15px;font-weight:700;width:34px;height:28px;border-radius:14px;display:grid;place-items:center;background:#e3ebf2;color:#8fa3b3}
+.vo2.on i{background:var(--c);color:#fff;animation:vPulse 1.5s ease-in-out infinite}
+.vo2.on i:nth-child(2){animation-delay:.25s}
+.vo2.on i:nth-child(3){animation-delay:.5s}
+@keyframes vPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.vfuel{color:var(--ct)!important}
+body.print #s4 .lane,body.print .viaCol{opacity:1;transform:none}
 </style>
 </head>
 <body>
@@ -665,16 +691,12 @@ h2{font-weight:700;letter-spacing:0}
   <div class="sh"><span class="part"></span><span class="who"></span></div>
   <div class="row tabrow"><h2 class="ttl">As três vias refazem o ATP ao mesmo tempo</h2><div class="seg tabs"><button class="on" data-title="As três vias refazem o ATP ao mesmo tempo">1 · As três juntas</button><button data-title="As enzimas que controlam as vias">2 · Enzimas</button></div></div>
   <div class="itab" data-t="0">
-    <svg class="viasAnim" viewBox="0 0 1184 490" role="img" aria-label="As três vias refazem o ATP ao mesmo tempo e o ATP segue para a contração">
+    <svg class="viasAnim" viewBox="0 0 1184 490" role="img" aria-label="As três vias refazem o ATP: primeiro o sistema ATP-CP, depois a glicólise e, por fim, o sistema oxidativo">
   <defs><marker id="vae2701f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#e2701f"/></marker><marker id="vad63c58" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#d63c58"/></marker><marker id="va14a094" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#14a094"/></marker><marker id="va7f93a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7f93a5"/></marker></defs>
-  <path d="M188 60H770C850 60 880 120 896 168" fill="none" stroke="#e2701f" stroke-width="3.5" marker-end="url(#vae2701f)"/><path d="M188 240H848" fill="none" stroke="#d63c58" stroke-width="3.5" marker-end="url(#vad63c58)"/><path d="M188 420H770C850 420 880 360 896 312" fill="none" stroke="#14a094" stroke-width="3.5" marker-end="url(#va14a094)"/><path d="M470 276V382" fill="none" stroke="#d63c58" stroke-width="3.5" marker-end="url(#vad63c58)"/><path d="M1010 240H1040" fill="none" stroke="#7f93a5" stroke-width="3.5" marker-end="url(#va7f93a5)"/>
-  <g><circle r="9" fill="#e2701f" stroke="#ffffff" stroke-width="2"/><animateMotion dur="1.5s" begin="-0.00s" repeatCount="indefinite" path="M188 60H770C850 60 880 120 896 168"/></g><g><circle r="9" fill="#e2701f" stroke="#ffffff" stroke-width="2"/><animateMotion dur="1.5s" begin="-0.50s" repeatCount="indefinite" path="M188 60H770C850 60 880 120 896 168"/></g><g><circle r="9" fill="#e2701f" stroke="#ffffff" stroke-width="2"/><animateMotion dur="1.5s" begin="-1.00s" repeatCount="indefinite" path="M188 60H770C850 60 880 120 896 168"/></g><g><circle r="9" fill="#d63c58" stroke="#ffffff" stroke-width="2"/><animateMotion dur="3s" begin="-0.00s" repeatCount="indefinite" path="M188 240H848"/></g><g><circle r="9" fill="#d63c58" stroke="#ffffff" stroke-width="2"/><animateMotion dur="3s" begin="-0.75s" repeatCount="indefinite" path="M188 240H848"/></g><g><circle r="9" fill="#d63c58" stroke="#ffffff" stroke-width="2"/><animateMotion dur="3s" begin="-1.50s" repeatCount="indefinite" path="M188 240H848"/></g><g><circle r="9" fill="#d63c58" stroke="#ffffff" stroke-width="2"/><animateMotion dur="3s" begin="-2.25s" repeatCount="indefinite" path="M188 240H848"/></g><g><circle r="9" fill="#14a094" stroke="#ffffff" stroke-width="2"/><animateMotion dur="6s" begin="-0.00s" repeatCount="indefinite" path="M188 420H770C850 420 880 360 896 312"/></g><g><circle r="9" fill="#14a094" stroke="#ffffff" stroke-width="2"/><animateMotion dur="6s" begin="-1.00s" repeatCount="indefinite" path="M188 420H770C850 420 880 360 896 312"/></g><g><circle r="9" fill="#14a094" stroke="#ffffff" stroke-width="2"/><animateMotion dur="6s" begin="-2.00s" repeatCount="indefinite" path="M188 420H770C850 420 880 360 896 312"/></g><g><circle r="9" fill="#14a094" stroke="#ffffff" stroke-width="2"/><animateMotion dur="6s" begin="-3.00s" repeatCount="indefinite" path="M188 420H770C850 420 880 360 896 312"/></g><g><circle r="9" fill="#14a094" stroke="#ffffff" stroke-width="2"/><animateMotion dur="6s" begin="-4.00s" repeatCount="indefinite" path="M188 420H770C850 420 880 360 896 312"/></g><g><circle r="9" fill="#14a094" stroke="#ffffff" stroke-width="2"/><animateMotion dur="6s" begin="-5.00s" repeatCount="indefinite" path="M188 420H770C850 420 880 360 896 312"/></g><g><circle r="9" fill="#d63c58" stroke="#ffffff" stroke-width="2"/><animateMotion dur="2.4s" begin="-0.00s" repeatCount="indefinite" path="M470 276V382"/></g><g><circle r="9" fill="#d63c58" stroke="#ffffff" stroke-width="2"/><animateMotion dur="2.4s" begin="-1.20s" repeatCount="indefinite" path="M470 276V382"/></g><g><circle r="9" fill="#c9a12c" stroke="#ffffff" stroke-width="2"/><animateMotion dur="1.1s" begin="-0.00s" repeatCount="indefinite" path="M1010 240H1040"/></g><g><circle r="9" fill="#c9a12c" stroke="#ffffff" stroke-width="2"/><animateMotion dur="1.1s" begin="-0.55s" repeatCount="indefinite" path="M1010 240H1040"/></g>
-  <g><rect x="0" y="24" width="170" height="72" rx="12" fill="#e2701f"/><text x="85" y="69" text-anchor="middle" fill="#ffffff" font-size="26" font-weight="800">ATP-CP</text></g><g><rect x="210" y="24" width="200" height="72" rx="12" fill="#ffffff" stroke="#e2701f" stroke-width="2.5"/><text x="310" y="69" text-anchor="middle" fill="#0f2233" font-size="25" font-weight="700">Creatina fosfato</text></g><g><rect x="440" y="24" width="210" height="72" rx="12" fill="#ffffff" stroke="#e2701f" stroke-width="2.5"/><text x="545" y="69" text-anchor="middle" fill="#0f2233" font-size="25" font-weight="700">Creatina quinase</text></g>
-  <g><rect x="0" y="204" width="170" height="72" rx="12" fill="#d63c58"/><text x="85" y="249" text-anchor="middle" fill="#ffffff" font-size="26" font-weight="800">Glicólise</text></g><g><rect x="210" y="204" width="200" height="72" rx="12" fill="#ffffff" stroke="#d63c58" stroke-width="2.5"/><text x="310" y="249" text-anchor="middle" fill="#0f2233" font-size="25" font-weight="700">Glicogênio</text></g><g><rect x="420" y="204" width="120" height="72" rx="12" fill="#ffffff" stroke="#d63c58" stroke-width="2.5"/><text x="480" y="249" text-anchor="middle" fill="#0f2233" font-size="25" font-weight="700">Piruvato</text></g><g><rect x="570" y="204" width="130" height="72" rx="12" fill="#ffffff" stroke="#d63c58" stroke-width="2.5"/><text x="635" y="249" text-anchor="middle" fill="#0f2233" font-size="25" font-weight="700">Lactato</text></g>
-  <g><rect x="0" y="384" width="170" height="72" rx="12" fill="#14a094"/><text x="85" y="429" text-anchor="middle" fill="#ffffff" font-size="26" font-weight="800">Oxidativo</text></g><g><rect x="210" y="384" width="200" height="72" rx="12" fill="#ffffff" stroke="#14a094" stroke-width="2.5"/><text x="310" y="429" text-anchor="middle" fill="#0f2233" font-size="25" font-weight="700">Ácidos graxos</text></g><g><rect x="415" y="384" width="130" height="72" rx="12" fill="#ffffff" stroke="#14a094" stroke-width="2.5"/><text x="480" y="429" text-anchor="middle" fill="#0f2233" font-size="25" font-weight="700">Acetil-CoA</text></g><g><rect x="570" y="384" width="200" height="72" rx="12" fill="#ffffff" stroke="#14a094" stroke-width="2.5"/><text x="670" y="429" text-anchor="middle" fill="#0f2233" font-size="25" font-weight="700">Krebs e cadeia</text></g>
-  <text x="760" y="42" fill="#c9550c" font-size="30" font-weight="800">1 ATP</text>
-  <text x="716" y="222" fill="#c52c49" font-size="30" font-weight="800">2 a 3 ATP</text>
-  <text x="782" y="478" fill="#0a7f75" font-size="30" font-weight="800">30 a 32 ATP</text>
+  <g class="lane" id="laneP"><path d="M188 60H770C850 60 880 120 896 168" fill="none" stroke="#e2701f" stroke-width="3.5" marker-end="url(#vae2701f)"/><g><circle r="9" fill="#e2701f" stroke="#ffffff" stroke-width="2"/><animateMotion dur="1.5s" begin="-0.00s" repeatCount="indefinite" path="M188 60H770C850 60 880 120 896 168"/></g><g><circle r="9" fill="#e2701f" stroke="#ffffff" stroke-width="2"/><animateMotion dur="1.5s" begin="-0.50s" repeatCount="indefinite" path="M188 60H770C850 60 880 120 896 168"/></g><g><circle r="9" fill="#e2701f" stroke="#ffffff" stroke-width="2"/><animateMotion dur="1.5s" begin="-1.00s" repeatCount="indefinite" path="M188 60H770C850 60 880 120 896 168"/></g><g><rect x="0" y="24" width="170" height="72" rx="12" fill="#e2701f"/><text x="85" y="69" text-anchor="middle" fill="#ffffff" font-size="26" font-weight="800">ATP-CP</text></g><g><rect x="210" y="24" width="200" height="72" rx="12" fill="#ffffff" stroke="#e2701f" stroke-width="2.5"/><text x="310" y="69" text-anchor="middle" fill="#0f2233" font-size="25" font-weight="700">Creatina fosfato</text></g><g><rect x="440" y="24" width="210" height="72" rx="12" fill="#ffffff" stroke="#e2701f" stroke-width="2.5"/><text x="545" y="69" text-anchor="middle" fill="#0f2233" font-size="25" font-weight="700">Creatina quinase</text></g><text x="760" y="42" fill="#c9550c" font-size="30" font-weight="800">1 ATP</text></g>
+  <g class="lane" id="laneG"><path d="M188 240H848" fill="none" stroke="#d63c58" stroke-width="3.5" marker-end="url(#vad63c58)"/><g><circle r="9" fill="#d63c58" stroke="#ffffff" stroke-width="2"/><animateMotion dur="3s" begin="-0.00s" repeatCount="indefinite" path="M188 240H848"/></g><g><circle r="9" fill="#d63c58" stroke="#ffffff" stroke-width="2"/><animateMotion dur="3s" begin="-0.75s" repeatCount="indefinite" path="M188 240H848"/></g><g><circle r="9" fill="#d63c58" stroke="#ffffff" stroke-width="2"/><animateMotion dur="3s" begin="-1.50s" repeatCount="indefinite" path="M188 240H848"/></g><g><circle r="9" fill="#d63c58" stroke="#ffffff" stroke-width="2"/><animateMotion dur="3s" begin="-2.25s" repeatCount="indefinite" path="M188 240H848"/></g><g><rect x="0" y="204" width="170" height="72" rx="12" fill="#d63c58"/><text x="85" y="249" text-anchor="middle" fill="#ffffff" font-size="26" font-weight="800">Glicólise</text></g><g><rect x="210" y="204" width="200" height="72" rx="12" fill="#ffffff" stroke="#d63c58" stroke-width="2.5"/><text x="310" y="249" text-anchor="middle" fill="#0f2233" font-size="25" font-weight="700">Glicogênio</text></g><g><rect x="420" y="204" width="120" height="72" rx="12" fill="#ffffff" stroke="#d63c58" stroke-width="2.5"/><text x="480" y="249" text-anchor="middle" fill="#0f2233" font-size="25" font-weight="700">Piruvato</text></g><g><rect x="570" y="204" width="130" height="72" rx="12" fill="#ffffff" stroke="#d63c58" stroke-width="2.5"/><text x="635" y="249" text-anchor="middle" fill="#0f2233" font-size="25" font-weight="700">Lactato</text></g><text x="716" y="222" fill="#c52c49" font-size="30" font-weight="800">2 a 3 ATP</text></g>
+  <g class="lane" id="laneO"><path d="M188 420H770C850 420 880 360 896 312" fill="none" stroke="#14a094" stroke-width="3.5" marker-end="url(#va14a094)"/><path d="M470 276V382" fill="none" stroke="#d63c58" stroke-width="3.5" marker-end="url(#vad63c58)"/><g><circle r="9" fill="#14a094" stroke="#ffffff" stroke-width="2"/><animateMotion dur="6s" begin="-0.00s" repeatCount="indefinite" path="M188 420H770C850 420 880 360 896 312"/></g><g><circle r="9" fill="#14a094" stroke="#ffffff" stroke-width="2"/><animateMotion dur="6s" begin="-1.00s" repeatCount="indefinite" path="M188 420H770C850 420 880 360 896 312"/></g><g><circle r="9" fill="#14a094" stroke="#ffffff" stroke-width="2"/><animateMotion dur="6s" begin="-2.00s" repeatCount="indefinite" path="M188 420H770C850 420 880 360 896 312"/></g><g><circle r="9" fill="#14a094" stroke="#ffffff" stroke-width="2"/><animateMotion dur="6s" begin="-3.00s" repeatCount="indefinite" path="M188 420H770C850 420 880 360 896 312"/></g><g><circle r="9" fill="#14a094" stroke="#ffffff" stroke-width="2"/><animateMotion dur="6s" begin="-4.00s" repeatCount="indefinite" path="M188 420H770C850 420 880 360 896 312"/></g><g><circle r="9" fill="#14a094" stroke="#ffffff" stroke-width="2"/><animateMotion dur="6s" begin="-5.00s" repeatCount="indefinite" path="M188 420H770C850 420 880 360 896 312"/></g><g><circle r="9" fill="#d63c58" stroke="#ffffff" stroke-width="2"/><animateMotion dur="2.4s" begin="-0.00s" repeatCount="indefinite" path="M470 276V382"/></g><g><circle r="9" fill="#d63c58" stroke="#ffffff" stroke-width="2"/><animateMotion dur="2.4s" begin="-1.20s" repeatCount="indefinite" path="M470 276V382"/></g><g><rect x="0" y="384" width="170" height="72" rx="12" fill="#14a094"/><text x="85" y="429" text-anchor="middle" fill="#ffffff" font-size="26" font-weight="800">Oxidativo</text></g><g><rect x="210" y="384" width="200" height="72" rx="12" fill="#ffffff" stroke="#14a094" stroke-width="2.5"/><text x="310" y="429" text-anchor="middle" fill="#0f2233" font-size="25" font-weight="700">Ácidos graxos</text></g><g><rect x="415" y="384" width="130" height="72" rx="12" fill="#ffffff" stroke="#14a094" stroke-width="2.5"/><text x="480" y="429" text-anchor="middle" fill="#0f2233" font-size="25" font-weight="700">Acetil-CoA</text></g><g><rect x="570" y="384" width="200" height="72" rx="12" fill="#ffffff" stroke="#14a094" stroke-width="2.5"/><text x="670" y="429" text-anchor="middle" fill="#0f2233" font-size="25" font-weight="700">Krebs e cadeia</text></g><text x="782" y="478" fill="#0a7f75" font-size="30" font-weight="800">30 a 32 ATP</text></g>
+  <path d="M1010 240H1040" fill="none" stroke="#7f93a5" stroke-width="3.5" marker-end="url(#va7f93a5)"/><g><circle r="9" fill="#c9a12c" stroke="#ffffff" stroke-width="2"/><animateMotion dur="1.1s" begin="-0.00s" repeatCount="indefinite" path="M1010 240H1040"/></g><g><circle r="9" fill="#c9a12c" stroke="#ffffff" stroke-width="2"/><animateMotion dur="1.1s" begin="-0.55s" repeatCount="indefinite" path="M1010 240H1040"/></g>
   <circle cx="930" cy="240" r="78" fill="#ffd23f" stroke="#c9a12c" stroke-width="3"><animate attributeName="r" values="78;84;78" dur="1.1s" repeatCount="indefinite"/></circle>
   <text x="930" y="256" text-anchor="middle" fill="#1a1400" font-size="46" font-weight="800">ATP</text>
   <g><rect x="1040" y="204" width="144" height="72" rx="12" fill="#0f2233"/><text x="1112" y="249" text-anchor="middle" fill="#ffffff" font-size="23" font-weight="700">Contração</text></g>
@@ -870,12 +892,28 @@ h2{font-weight:700;letter-spacing:0}
       </div>
     </div>
   </div>
-  <div class="vias3">
-    <div></div><div class="vh k-pcr">ATP-CP</div><div class="vh k-gly">Glicólise</div><div class="vh k-oxi">Oxidativo</div>
-    <div class="vk">Velocidade</div><div>Muito rápida</div><div>Rápida</div><div>Mais lenta</div>
-    <div class="vk">Reserva</div><div>Poucos segundos</div><div>Intermediária</div><div>Muito grande</div>
-    <div class="vk">Oxigênio</div><div>Não usa</div><div>Não usa</div><div>Usa</div>
-    <div class="vk">Combustível</div><div>Creatina fosfato</div><div>Glicogênio</div><div>Glicose e gordura</div>
+  <div class="vias3a">
+    <div class="viaCol" id="colP" style="--c:var(--pcr);--ct:var(--pcr-t)">
+      <h3>ATP-CP</h3>
+      <div class="vr"><b>Velocidade</b><span>Muito rápida</span><div class="vtrack"><i style="animation-duration:0.9s"></i></div></div>
+      <div class="vr"><b>Reserva</b><span>Poucos segundos</span><div class="vtank"><i class="t1"></i></div></div>
+      <div class="vr"><b>Oxigênio</b><span>Não usa</span><div class="vo2"><i>O₂</i><i>O₂</i><i>O₂</i></div></div>
+      <div class="vr"><b>Combustível</b><span class="vfuel">Creatina fosfato</span></div>
+    </div>
+    <div class="viaCol" id="colG" style="--c:var(--gly);--ct:var(--gly-t)">
+      <h3>Glicólise</h3>
+      <div class="vr"><b>Velocidade</b><span>Rápida</span><div class="vtrack"><i style="animation-duration:1.7s"></i></div></div>
+      <div class="vr"><b>Reserva</b><span>Intermediária</span><div class="vtank"><i class="t2"></i></div></div>
+      <div class="vr"><b>Oxigênio</b><span>Não usa</span><div class="vo2"><i>O₂</i><i>O₂</i><i>O₂</i></div></div>
+      <div class="vr"><b>Combustível</b><span class="vfuel">Glicogênio</span></div>
+    </div>
+    <div class="viaCol" id="colO" style="--c:var(--oxi);--ct:var(--oxi-t)">
+      <h3>Oxidativo</h3>
+      <div class="vr"><b>Velocidade</b><span>Mais lenta</span><div class="vtrack"><i style="animation-duration:3.6s"></i></div></div>
+      <div class="vr"><b>Reserva</b><span>Muito grande</span><div class="vtank"><i class="t3"></i></div></div>
+      <div class="vr"><b>Oxigênio</b><span>Usa</span><div class="vo2 on"><i>O₂</i><i>O₂</i><i>O₂</i></div></div>
+      <div class="vr"><b>Combustível</b><span class="vfuel">Glicose e gordura</span></div>
+    </div>
   </div>
   <div class="cite"><b>Fontes:</b> Hargreaves; Spriet (2020) · Alghannam; Ghaith; Alhussain (2021) · Nelson; Cox (2019) · trabalho do grupo, seção 4.4</div>
   
@@ -899,7 +937,7 @@ h2{font-weight:700;letter-spacing:0}
         <div class="seg" id="simSpeed"><button data-v="0.25">¼×</button><button data-v="0.5">½×</button><button class="on" data-v="1">1×</button><button data-v="2">2×</button></div>
         <button class="btn" id="simSurge" title="Mudança de ritmo">⚡ Acelerar</button>
       </div>
-      <canvas id="tlCanvas" width="1660" height="208" aria-label="Contribuição relativa dos sistemas ao longo da prova"></canvas>
+      <canvas id="tlCanvas" width="1660" height="250" aria-label="Contribuição relativa dos sistemas ao longo da prova"></canvas>
     </div>
     <div class="hud">
       <div class="seg" id="simMode" style="width:100%"><button class="on" data-v="m100" style="flex:1">A · 100 m</button><button data-v="k10" style="flex:1">B · 10 km</button></div>
@@ -1962,45 +2000,46 @@ const qual = s => s > .5 ? "predominante" : s > .28 ? "importante" : s > .12 ? "
   }
 
   function drawTimeline(){
-    const w = tl.width, h = tl.height, pad = 30, top = 26, bot = h - 34;
+    const w = tl.width, h = tl.height, pad = 30, top = 46, bot = h - 42;
     tc.clearRect(0, 0, w, h);
-    tc.fillStyle = "#4f6475"; tc.font = "600 19px Arial, sans-serif"; tc.textAlign = "left"; tc.textBaseline = "alphabetic";
-    tc.fillText(mode === "free" ? "CONTRIBUIÇÃO RELATIVA · ÚLTIMOS 60 s (ILUSTRATIVA)" : "CONTRIBUIÇÃO RELATIVA AO LONGO DA PROVA (ILUSTRATIVA)", pad, 20);
+    tc.fillStyle = "#0f2233"; tc.font = "700 30px Arial, sans-serif"; tc.textAlign = "left"; tc.textBaseline = "alphabetic";
+    tc.fillText(mode === "free" ? "Contribuição das vias · últimos 60 s" : "Contribuição das vias ao longo da prova", pad, 32);
+    { tc.font = "700 26px Arial, sans-serif"; let lx = w - pad; [["Oxidativo", "#0fa394"], ["Glicólise", "#dc3a58"], ["Fosfocreatina", "#f07a24"]].forEach(([t, col]) => { const tw = tc.measureText(t).width; lx -= tw; tc.fillStyle = "#0f2233"; tc.textAlign = "left"; tc.fillText(t, lx, 32); lx -= 30; tc.fillStyle = col; tc.fillRect(lx, 12, 22, 22); lx -= 36; }); }
     if (mode === "free"){
       const hs = race.hist; if (hs.length < 2) return;
       const t1 = race.t, t0 = t1 - 60, X = t => pad + (w - 2*pad)*clamp((t - t0)/60, 0, 1), Y = v => bot - (bot - top)*v;
       let lower = hs.map(() => 0);
-      [["ox", C.oxi], ["gly", C.gly], ["pcr", C.pcr]].forEach(([k, col]) => {
+      [["ox", "#0fa394"], ["gly", "#dc3a58"], ["pcr", "#f07a24"]].forEach(([k, col]) => {
         tc.beginPath();
         hs.forEach((b, i) => { const y = Y(lower[i] + b[k]); i ? tc.lineTo(X(b.t), y) : tc.moveTo(X(b.t), y); });
         for (let i = hs.length - 1; i >= 0; i--) tc.lineTo(X(hs[i].t), Y(lower[i]));
-        tc.closePath(); tc.fillStyle = col; tc.globalAlpha = .82; tc.fill(); tc.globalAlpha = 1;
+        tc.closePath(); tc.fillStyle = col; tc.globalAlpha = 1; tc.fill(); tc.globalAlpha = 1;
         lower = lower.map((v, i) => v + hs[i][k]);
       });
-      tc.fillStyle = "#4f6475"; tc.font = "17px Arial, sans-serif"; tc.textAlign = "center";
+      tc.fillStyle = "#0f2233"; tc.font = "600 26px Arial, sans-serif"; tc.textAlign = "center";
       [[-60, "−60 s"], [-45, "−45 s"], [-30, "−30 s"], [-15, "−15 s"], [0, "agora"]].forEach(([o, l]) => { tc.fillText(l, X(t1 + o), h - 10); tc.fillRect(X(t1 + o) - .5, bot, 1, 6); });
       return;
     }
     if (!baseline.length) return;
     const T = race.T, X = t => pad + (w - 2*pad)*clamp(t/T, 0, 1), Y = v => bot - (bot - top)*v;
-    const layers = [["ox", C.oxi], ["gly", C.gly], ["pcr", C.pcr]];
+    const layers = [["ox", "#0fa394"], ["gly", "#dc3a58"], ["pcr", "#f07a24"]];
     // áreas empilhadas: oxidativo embaixo, glicólise, PCr em cima
     let lower = baseline.map(() => 0);
     layers.forEach(([k, col]) => {
       tc.beginPath();
       baseline.forEach((b, i) => { const y = Y(lower[i] + b[k]); i ? tc.lineTo(X(b.t), y) : tc.moveTo(X(b.t), y); });
       for (let i = baseline.length - 1; i >= 0; i--) tc.lineTo(X(baseline[i].t), Y(lower[i]));
-      tc.closePath(); tc.fillStyle = col; tc.globalAlpha = .82; tc.fill(); tc.globalAlpha = 1;
+      tc.closePath(); tc.fillStyle = col; tc.globalAlpha = 1; tc.fill(); tc.globalAlpha = 1;
       lower = lower.map((v, i) => v + baseline[i][k]);
     });
     // eixo de tempo
-    tc.fillStyle = "#4f6475"; tc.font = "17px Arial, sans-serif"; tc.textAlign = "center";
+    tc.fillStyle = "#0f2233"; tc.font = "600 26px Arial, sans-serif"; tc.textAlign = "center";
     const ticks = mode === "m100" ? [0, 2, 4, 6, 8, 10].map(t => [t, `${t} s`]) : [0, 2, 4, 6, 8, 10].map(k => [k*1000/(4.83*43), `${k} km`]);
     ticks.forEach(([t, l]) => { if (t <= T){ tc.fillText(l, X(t), h - 10); tc.fillRect(X(t) - .5, bot, 1, 6); } });
     // cursor
     const x = X(race.t);
     tc.fillStyle = "rgba(255,255,255,.62)"; tc.fillRect(x, top, w - pad - x, bot - top);
-    tc.fillStyle = C.atp; tc.fillRect(x - 1.5, top - 4, 3, bot - top + 8);
+    tc.fillStyle = "#0f2233"; tc.fillRect(x - 2.5, top - 4, 5, bot - top + 8);
   }
 
   hooks.s6 = {
@@ -2091,7 +2130,8 @@ const qual = s => s > .5 ? "predominante" : s > .28 ? "importante" : s > .12 ? "
       drawRunner(c, x, gy, S, P, look, { muscle: showMus, acts, rgb: race.t > 0 || mode === "free" ? col : [120, 60, 70], dem: live || mode === "free" ? .35 + .65*demand : .2 });
       // lupa da fibra muscular, ligada ao quadríceps
       const LX = W - 235, LY = 275, LR = 165;
-      if (false){ const l = P.legs[0], td = unit(l.hip, l.knee);
+      if (showMus){
+        const l = P.legs[0], td = unit(l.hip, l.knee);
         const q = offP(mixPt(l.hip, l.knee, .45), { x: td.y, y: -td.x }, 6);
         const qx = x + q.x*S, qy = gy - P.ground*S + q.y*S;
         const an = Math.atan2(qy - LY, qx - LX);
@@ -2099,6 +2139,7 @@ const qual = s => s > .5 ? "predominante" : s > .28 ? "importante" : s > .12 ? "
         c.beginPath(); c.moveTo(LX + Math.cos(an)*(LR + 20), LY + Math.sin(an)*(LR + 20)); c.lineTo(qx, qy); c.stroke(); c.setLineDash([]);
         c.beginPath(); c.arc(qx, qy, 11, 0, 7); c.stroke();
       }
+      lens.draw(c, LX, LY, LR, { dem: demand, shares: mix, type: fiber, running: live || (mode === "free" && playing) }, (playing || race.done) ? dt : 0);
       // faixas de km nos 10 km
       if (mode === "k10"){
         const km = Math.floor(race.d/1000);
@@ -2431,7 +2472,28 @@ $$("#t1f button").forEach(b => b.onclick = () => {
 const press = sel => { const b = $(sel); if (b) b.click(); };
 const setRange = (sel, v) => { const r = $(sel); r.value = v; r.dispatchEvent(new Event("input", { bubbles: true })); };
 const durVal = t => (Math.log(t) - Math.log(5))/(Math.log(3600) - Math.log(5))*1000;
+{
+  const cols = ["#colP", "#colG", "#colO"], nomes = ["ATP-CP", "glicólise", "oxidativo"];
+  let visiveis = 0;
+  const pintar = () => cols.forEach((c, i) => $(c).classList.toggle("on", i < visiveis));
+  hooks.s5 = Object.assign(hooks.s5 || {}, {
+    step(d){
+      if (d > 0 && visiveis < 3){ visiveis++; pintar(); return true; }
+      if (d < 0 && visiveis > 0){ visiveis--; pintar(); return true; }
+      return false;
+    },
+    hint(){ return visiveis < 3 ? "mostrar " + nomes[visiveis] : null; },
+  });
+}
 const ACTIONS = {
+  s4: [{
+    reset(){ $$("#s4 .lane").forEach(l => l.classList.remove("on")); },
+    list: [
+      ["mostrar ATP-CP", () => $("#laneP").classList.add("on")],
+      ["mostrar glicólise", () => $("#laneG").classList.add("on")],
+      ["mostrar oxidativo", () => $("#laneO").classList.add("on")],
+    ],
+  }, null],
   s7: [null, null, {
     reset(){ $$("#s7 .mcard").forEach(m => m.classList.remove("on")); },
     list: [0, 1].map(i => [`revelar o cartão ${i + 1}`, () => $$("#s7 .mcard")[i].classList.add("on")]),
