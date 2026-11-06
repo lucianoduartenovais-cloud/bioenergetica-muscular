@@ -403,6 +403,26 @@ body.print .pipe{animation:none}
 #s8 #recSvg{max-height:345px}
 #s8 #recTxt{font-size:16px!important}
 #s8 .itab[data-t="1"] label.row{font-size:17px!important}
+#s2 .jg2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:22px}
+.jscene{background:var(--panel);border:1px solid var(--line);border-top:5px solid var(--c);border-radius:12px;padding:34px 30px;display:flex;flex-direction:column;gap:10px;min-height:300px;justify-content:center}
+.jscene .eyebrow{font-size:14px}
+.jbig{font-family:var(--f-display);font-size:96px;line-height:1.05;font-weight:800;color:var(--c)}
+.jtime{font-size:26px;color:var(--fg)}
+.jline{font-size:27px;margin-top:26px;text-align:center}
+.jlead{font-size:30px;margin-top:26px;color:var(--fg)}
+.jflow{display:grid;grid-template-columns:1fr 34px 1fr 34px 1fr;gap:10px;align-items:stretch;margin-top:28px}
+.jflow>div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:26px 22px;display:flex;flex-direction:column;gap:10px;min-height:150px;justify-content:center}
+.jflow b{font-family:var(--f-display);font-size:29px;line-height:1.15}
+.jflow span{font-size:22px;color:#cfdbe3;line-height:1.3}
+.jflow>i,.jroute>i{font-style:normal;color:var(--atp);font-size:26px;font-weight:700;display:grid;place-items:center}
+.jq{font-family:var(--f-display);font-size:32px;line-height:1.22;font-weight:600;border-left:5px solid var(--atp);padding:8px 0 8px 22px;margin-top:38px}
+.jq small{display:block;font-family:var(--f-mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--atp);margin-bottom:8px;font-weight:400}
+.jg3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+.jg3 .box{padding:26px 24px;min-height:300px}
+.jg3 h3{font-size:30px;margin-bottom:14px}
+.jg3 p{font-size:24px!important;line-height:1.35;color:#dfe8ee}
+.jroute{display:grid;grid-template-columns:1fr 34px 1fr 34px 1fr;gap:10px;margin-top:30px;text-align:center}
+.jroute span{background:var(--panel2);border:1px solid #2f4b62;border-radius:10px;padding:22px 12px;font-size:23px;font-weight:600;display:grid;place-items:center}
 </style>
 </head>
 <body>
@@ -431,92 +451,40 @@ body.print .pipe{animation:none}
 <section class="slide" id="s2" data-part="01" data-pname="Introdução">
   <div class="sh"><span class="part"></span><span class="who"></span></div>
   <div class="row" style="justify-content:space-between;align-items:flex-end;gap:20px">
-    <h2 id="introTitle">Correr é transformar alimento em movimento</h2>
-    <div class="seg" id="introTabs"><button class="on" data-t="a" data-title="Correr é transformar alimento em movimento">1 · O tema</button><button data-t="b" data-title="Duas provas nos extremos da pista">2 · As duas provas</button><button data-t="c" data-title="O que o trabalho se propõe a fazer">3 · Objetivos e método</button></div>
+    <h2 id="introTitle">Como o corpo consegue continuar correndo?</h2>
+    <div class="seg" id="introTabs"><button class="on" data-t="a" data-title="Como o corpo consegue continuar correndo?">1 · Duas cenas</button><button data-t="b" data-title="Bioenergética muscular">2 · Tema e pergunta</button><button data-t="c" data-title="O que vamos explorar">3 · Objetivo e método</button></div>
   </div>
 
-  <!-- aba 1: o tema -->
+  <!-- aba 1: duas cenas -->
   <div class="itab" id="tab-a">
-    <div class="ia">
-      <div style="min-width:0;display:flex;flex-direction:column;gap:12px">
-        <p class="lead">A <b>bioenergética muscular</b> estuda como o músculo converte a energia química dos nutrientes em energia utilizável para contrair. A moeda dessa troca é uma única molécula: o <b class="k-atp">ATP</b>.</p>
-        <div class="facts">
-          <div><b>O ATP é pouco</b><span>A reserva livre de ATP no músculo é pequena diante da demanda do exercício.</span></div>
-          <div><b>Por isso é refeito sem parar</b><span>Durante o exercício, o ATP gasto precisa ser <em>ressintetizado continuamente</em>; o desempenho depende da velocidade dessa reposição.</span></div>
-          <div><b>E o exercício muda tudo</b><span>Correr rápido ou correr muito tempo exige formas diferentes de repor essa energia.</span></div>
-        </div>
-        <div class="q"><small>Questão norteadora</small>Por que o organismo utiliza diferentes contribuições dos sistemas energéticos conforme a intensidade e a duração do exercício?</div>
-      </div>
-      <div style="min-width:0;display:flex;flex-direction:column;gap:12px">
-        <div class="eyebrow">Por que estudar isso</div>
-        <div class="sys"><h3 class="k-atp">No esporte</h3><p>Explica por que velocistas e fundistas treinam de formas diferentes e por que cada prova cansa de um jeito.</p></div>
-        <div class="sys"><h3 class="k-oxi">Na saúde e na fisioterapia</h3><p>Ajuda a dosar exercício e pausas na reabilitação e a entender doenças em que o músculo produz energia mal.</p></div>
-        <div class="sys"><h3 class="k-gly">Na bioquímica</h3><p>É um exemplo vivo de como enzimas, vias metabólicas e mitocôndria trabalham juntas e respondem à demanda.</p></div>
-      </div>
+    <div class="jg2">
+      <div class="jscene" style="--c:var(--pcr)"><span class="eyebrow">Cena 1 · o atleta dispara</span><b class="jbig">100 m</b><span class="jtime">cerca de 10 segundos</span></div>
+      <div class="jscene" style="--c:var(--oxi)"><span class="eyebrow">Cena 2 · o corredor encara a prova</span><b class="jbig">10 km</b><span class="jtime">cerca de meia hora, para quem compete</span></div>
     </div>
+    <p class="jline">São duas corridas, mas exigem do corpo <b>coisas bem diferentes</b>.</p>
   </div>
 
-  <!-- aba 2: as duas provas (fatos do esporte, sem a fisiologia) -->
+  <!-- aba 2: tema e pergunta -->
   <div class="itab" id="tab-b" hidden>
-    <div class="g2" style="margin-top:16px">
-      <div class="ev ev100">
-        <div class="eyebrow">Atleta A · prova de velocidade</div>
-        <b class="evn">100 metros</b>
-        <ul class="obj">
-          <li>Uma reta, largada no bloco, tudo decidido em cerca de <b>10 segundos</b>.</li>
-          <li>Recorde masculino: <b>Usain Bolt, 9,58 s</b> (Berlim, 2009), média de 37,6 km/h, com picos acima de 12 m/s.</li>
-          <li>Recorde feminino: <b>Florence Griffith-Joyner, 10,49 s</b> (1988).</li>
-          <li>Vence quem acelera mais e perde menos velocidade no fim.</li>
-        </ul>
-      </div>
-      <div class="ev ev10">
-        <div class="eyebrow">Atleta B · prova de fundo</div>
-        <b class="evn">10 quilômetros</b>
-        <ul class="obj">
-          <li>Na pista, são <b>25 voltas</b> de 400 m; para atletas bem treinados, cerca de <b>26 a 35 minutos</b>.</li>
-          <li>Recorde masculino (10.000 m): <b>Joshua Cheptegei, 26:11,00</b> (Valência, 2020), média de 22,9 km/h.</li>
-          <li>Recorde feminino: <b>Beatrice Chebet, 28:54,14</b> (2024).</li>
-          <li>Vence quem sustenta o ritmo mais alto e ainda tem força para o sprint final.</li>
-        </ul>
-      </div>
+    <p class="jlead">O estudo de como o músculo consegue <b>energia para se movimentar</b>.</p>
+    <div class="jflow">
+      <div><b class="k-atp">ATP</b><span>uma pequena bateria de uso imediato</span></div>
+      <i>→</i>
+      <div><b>Estoque limitado</b><span>o músculo guarda pouco</span></div>
+      <i>→</i>
+      <div><b>Refazer o tempo todo</b><span>para continuar o esforço</span></div>
     </div>
-    <div class="box" style="margin-top:16px;background:var(--panel2)">
-      <p style="font-size:17px"><b>Por que comparar essas duas?</b> São a prova olímpica de pista mais curta e a mais longa: uma dura cerca de <b>160 vezes mais</b> que a outra. Entender as duas pontas ajuda a entender as provas intermediárias.</p>
-    </div>
+    <div class="jq"><small>A pergunta do seminário</small>Por que o organismo utiliza os sistemas de energia em proporções diferentes conforme a intensidade e a duração do exercício?</div>
   </div>
 
-  <!-- aba 3: objetivos e método -->
+  <!-- aba 3: objetivo e método -->
   <div class="itab" id="tab-c" hidden>
-    <div class="ic">
-      <div class="box">
-        <div class="eyebrow" style="color:var(--atp)">Objetivo geral</div>
-        <p style="font-size:17px;margin-top:6px">Explicar os mecanismos de ressíntese de ATP no músculo esquelético e comparar as exigências bioenergéticas de uma corrida de 100 metros com as de uma corrida de 10 quilômetros.</p>
-        <div class="eyebrow" style="margin-top:16px;color:var(--atp)">Objetivos específicos</div>
-        <ol class="obj">
-          <li>Descrever a função do ATP na contração muscular.</li>
-          <li>Identificar as principais vias de ressíntese de ATP e suas enzimas relevantes.</li>
-          <li>Comparar a participação relativa do sistema ATP-fosfocreatina, da glicólise e do metabolismo oxidativo nas duas modalidades.</li>
-          <li>Discutir o papel do lactato e a natureza multifatorial da fadiga muscular.</li>
-          <li>Relacionar os mecanismos bioquímicos às exigências do treinamento, da recuperação e da utilização de substratos.</li>
-        </ol>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
-        <div class="box">
-          <div class="eyebrow" style="color:var(--atp)">Metodologia</div>
-          <p style="margin-top:6px">Pesquisa bibliográfica <b>narrativa</b>, de análise <b>qualitativa e comparativa</b>, baseada em revisões científicas sobre:</p>
-          <ul class="obj" style="margin-top:6px">
-            <li>metabolismo energético do músculo esquelético;</li>
-            <li>interação entre os sistemas energéticos;</li>
-            <li>metabolismo de substratos no exercício de resistência;</li>
-            <li>interpretação fisiológica do lactato.</li>
-          </ul>
-        </div>
-        <div class="box" style="background:var(--panel2)">
-          <div class="eyebrow">Limites do trabalho</div>
-          <p style="margin-top:6px">Não houve experimentos com participantes, coleta de dados clínicos nem medida direta das vias. Por isso não apresentamos percentuais universais.</p>
-        </div>
-      </div>
+    <div class="jg3">
+      <div class="box"><h3 class="k-atp">Objetivo</h3><p>Explicar como o músculo refaz ATP e o que os 100 m e os 10 km ensinam sobre as exigências do exercício.</p></div>
+      <div class="box"><h3 class="k-oxi">Por que importa</h3><p>Ajuda a compreender o treinamento, a prescrição de exercícios e o papel das enzimas e das vias metabólicas.</p></div>
+      <div class="box"><h3 class="k-pcr">Método</h3><p>Pesquisa bibliográfica narrativa, com leitura e resumo de artigos científicos de revisão. Sem testes com pessoas.</p></div>
     </div>
+    <div class="jroute"><span>Função do ATP</span><i>→</i><span>Caminhos para refazer o ATP</span><i>→</i><span>As duas provas</span></div>
   </div>
 
   <div class="cite"><b>Fontes:</b> Hargreaves; Spriet (2020) · Gastin (2001) · World Athletics · trabalho do grupo, seções 1 a 3</div>
@@ -2067,7 +2035,7 @@ const qual = s => s > .5 ? "predominante" : s > .28 ? "importante" : s > .12 ? "
    SLIDE 2: introdução em três abas (as setas avançam pelas abas antes de trocar de slide)
    ========================================================= */
 (function intro(){
-  const T = { a: "Correr é transformar alimento em movimento", b: "Duas provas nos extremos da pista", c: "O que o trabalho se propõe a fazer" };
+  const T = { a: "Como o corpo consegue continuar correndo?", b: "Bioenergética muscular", c: "O que vamos explorar" };
   const keys = ["a", "b", "c"]; let cur2 = 0;
   function show(i){
     cur2 = i;
