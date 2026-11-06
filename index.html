@@ -423,6 +423,34 @@ body.print .pipe{animation:none}
 .jg3 p{font-size:24px!important;line-height:1.35;color:#dfe8ee}
 .jroute{display:grid;grid-template-columns:1fr 34px 1fr 34px 1fr;gap:10px;margin-top:30px;text-align:center}
 .jroute span{background:var(--panel2);border:1px solid #2f4b62;border-radius:10px;padding:22px 12px;font-size:23px;font-weight:600;display:grid;place-items:center}
+#s3 .cgA{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;margin-top:22px;align-items:center}
+#s3 .cAtp{padding:22px}
+#s3 #atpSvg{width:100%;display:block}
+#s3 .cAtpSide{display:flex;flex-direction:column;gap:20px}
+#s3 .cAtpSide .eq{font-size:17px;white-space:normal;line-height:1.5}
+#s3 .cAtpSide p{font-size:25px;line-height:1.35}
+#s3 .cFlow{list-style:none;counter-reset:f;margin:26px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+#s3 .cFlow li{counter-increment:f;position:relative;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px 20px 22px 66px;min-height:176px;display:flex;flex-direction:column;justify-content:center;gap:8px}
+#s3 .cFlow li::before{content:counter(f);position:absolute;left:18px;top:50%;margin-top:-18px;width:36px;height:36px;border-radius:50%;background:var(--atp);color:#1a1400;font:700 18px var(--f-mono);display:grid;place-items:center}
+#s3 .cFlow b{font-family:var(--f-display);font-size:25px;line-height:1.15}
+#s3 .cFlow span{font-size:21px;color:#cfdbe3;line-height:1.3}
+#s3 .cgC{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;margin-top:20px;align-items:center}
+#s3 .cCb{padding:16px}
+#s3 #cbSvg{width:100%;display:block}
+#s3 .cSteps{list-style:none;counter-reset:s;margin:0;padding:0;display:grid;gap:10px}
+#s3 .cSteps li{counter-increment:s;position:relative;background:var(--panel);border:2px solid var(--line);border-radius:10px;padding:13px 14px 13px 58px;display:flex;flex-direction:column;gap:3px;transition:border-color .3s,background .3s}
+#s3 .cSteps li::before{content:counter(s);position:absolute;left:14px;top:50%;margin-top:-15px;width:30px;height:30px;border-radius:50%;background:var(--panel2);color:var(--fg);font:700 15px var(--f-mono);display:grid;place-items:center}
+#s3 .cSteps li.on{border-color:var(--atp);background:var(--panel2)}
+#s3 .cSteps li.on::before{background:var(--atp);color:#1a1400}
+#s3 .cSteps b{font-size:21px;line-height:1.2}
+#s3 .cSteps span{font-size:18px;color:#cfdbe3;line-height:1.25}
+#s3 .cg3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+#s3 .cg3 .box{padding:24px 22px;min-height:210px}
+#s3 .cg3 h3{font-size:26px;margin-bottom:12px;line-height:1.15}
+#s3 .cg3 p{font-size:23px;line-height:1.35}
+#s3 .cRigor{margin-top:18px;padding:18px 22px;background:var(--panel2)}
+#s3 .cRigor .eyebrow{font-size:13px;color:var(--atp)}
+#s3 .cRigor p{font-size:23px;line-height:1.3;margin-top:7px}
 </style>
 </head>
 <body>
@@ -494,12 +522,10 @@ body.print .pipe{animation:none}
 <!-- ================= 3 · FUNDAMENTOS ================= -->
 <section class="slide" id="s3" data-part="02" data-pname="Fundamentos">
   <div class="sh"><span class="part"></span><span class="who"></span></div>
-  <div class="row tabrow"><h2 class="ttl">ATP: a molécula que a miosina usa diretamente</h2><div class="seg tabs"><button class="on" data-title="ATP: a molécula que a miosina usa diretamente">1 · ATP e contração</button><button data-title="Onde o ATP é gasto em cada contração">2 · Do impulso ao relaxamento</button></div></div>
+  <div class="row tabrow"><h2 class="ttl">ATP: a moeda energética da célula</h2><div class="seg tabs"><button class="on" data-title="ATP: a moeda energética da célula">1 · ATP</button><button data-title="Do comando do cérebro à liberação do cálcio">2 · Comando</button><button data-title="Actina, miosina e o golpe de força">3 · Contração</button><button data-title="Os três grandes consumidores de ATP">4 · Relaxamento</button></div></div>
   <div class="itab" data-t="1">
-  <div class="wrap" style="margin-top:14px">
-    <div style="min-width:0;display:flex;flex-direction:column;gap:10px">
-      <div class="box" style="padding:10px 12px">
-        <svg id="atpSvg" viewBox="0 0 440 150" role="img" aria-label="Estrutura do ATP: adenina, ribose e três fosfatos">
+    <div class="cgA">
+      <div class="box cAtp"><svg id="atpSvg" viewBox="0 0 440 150" role="img" aria-label="Estrutura do ATP: adenina, ribose e três fosfatos">
           <g stroke="#6f8ea5" stroke-width="2" fill="#0c1b27">
             <polygon points="50,51 70.8,63 70.8,87 50,99 29.2,87 29.2,63"/>
             <polygon points="70.8,63 92,56 104,75 92,94 70.8,87"/>
@@ -516,29 +542,32 @@ body.print .pipe{animation:none}
             <circle cx="262" cy="75" r="18" fill="#2a2210" stroke="var(--atp)" stroke-width="2"/><text x="262" y="80" fill="var(--atp)">P</text>
             <g id="pGamma"><circle cx="312" cy="75" r="18" fill="#2a2210" stroke="var(--atp)" stroke-width="2"/><text x="312" y="80" fill="var(--atp)" id="pgTxt">P</text></g>
           </g>
-          <g font-size="10" fill="#91a6b6" text-anchor="middle"><text x="212" y="112">α</text><text x="262" y="112">β</text><text x="312" y="112">γ</text></g>
           <g id="burst" opacity="0" stroke="var(--atp)" stroke-width="2.5" stroke-linecap="round">
             <line x1="287" y1="48" x2="287" y2="34"/><line x1="300" y1="54" x2="310" y2="44"/><line x1="274" y1="54" x2="264" y2="44"/>
             <line x1="287" y1="102" x2="287" y2="116"/><line x1="300" y1="96" x2="310" y2="106"/><line x1="274" y1="96" x2="264" y2="106"/>
           </g>
           <text id="h2o" x="287" y="24" fill="var(--oxi)" font-size="12" text-anchor="middle" opacity="0">+ H₂O</text>
           <text id="atpName" x="420" y="30" fill="var(--fg)" font-size="22" font-weight="700" text-anchor="end">ATP</text>
-        </svg>
-        <div class="row" style="justify-content:space-between;margin-top:4px">
-          <div class="eq" id="atpEq">ATP + H₂O → ADP + P<sub>i</sub></div>
-          <button class="btn primary" id="atpBtn">Hidrolisar</button>
-        </div>
+        </svg></div>
+      <div class="cAtpSide">
+        <div class="eq" id="atpEq">ATP + H₂O → ADP + P<sub>i</sub> + energia</div>
+        <p><b class="k-atp">Uma pequena bateria:</b> ao perder o último fosfato, o ATP vira ADP e libera energia para o trabalho muscular.</p>
       </div>
-      <div class="pc">
-        <div class="box"><h3 class="k-atp">Potência energética</h3><p>Taxa de produção de ATP: quanto ATP por segundo a via consegue entregar.</p></div>
-        <div class="box"><h3 class="k-oxi">Capacidade energética</h3><p>Por quanto tempo a via consegue sustentar essa produção.</p></div>
-      </div>
-      <p class="muted" style="font-size:14px">Além da miosina, o ATP abastece proteínas que mantêm os gradientes iônicos e permitem o relaxamento muscular.</p>
     </div>
-    <div style="min-width:0;display:flex;flex-direction:column;gap:10px">
-      <div class="box" style="padding:12px">
-        <div class="row" style="justify-content:space-between"><span class="eyebrow">Ciclo das pontes cruzadas</span><button class="btn" id="cbPlay">▶ Animar</button></div>
-        <svg id="cbSvg" viewBox="0 0 400 190" role="img" aria-label="Ciclo das pontes cruzadas entre actina e miosina">
+  </div>
+  <div class="itab" data-t="2" hidden>
+    <ol class="cFlow">
+      <li><b>Cérebro</b><span>envia o comando ao músculo</span></li>
+      <li><b>Acetilcolina</b><span>é liberada e gera o impulso elétrico</span></li>
+      <li><b>Fibra muscular</b><span>conduz o impulso elétrico</span></li>
+      <li><b>Retículo sarcoplasmático</b><span>libera cálcio</span></li>
+      <li><b>Cálcio e troponina</b><span>o cálcio se liga à troponina</span></li>
+      <li><b>Tropomiosina</b><span>sai da frente e libera os pontos da actina</span></li>
+    </ol>
+  </div>
+  <div class="itab" data-t="3" hidden>
+    <div class="cgC">
+      <div class="box cCb"><svg id="cbSvg" viewBox="0 0 400 190" role="img" aria-label="Ciclo das pontes cruzadas entre actina e miosina">
           <g id="actin"></g>
           <rect x="10" y="150" width="380" height="16" rx="8" fill="#3a2a4d" stroke="#6d5490"/>
           <text x="16" y="182" fill="#91a6b6" font-size="10.5" font-family="JetBrains Mono, monospace">filamento grosso (miosina)</text>
@@ -546,40 +575,22 @@ body.print .pipe{animation:none}
           <line id="cbNeck" x1="200" y1="150" x2="200" y2="90" stroke="#a586cf" stroke-width="7" stroke-linecap="round"/>
           <ellipse id="cbHead" cx="200" cy="80" rx="16" ry="11" fill="#a586cf"/>
           <g id="cbTag"><rect x="0" y="0" width="64" height="20" rx="10" fill="var(--atp)"/><text id="cbTagT" x="32" y="14" fill="#1a1400" font-size="11" font-weight="700" text-anchor="middle" font-family="JetBrains Mono, monospace">ATP</text></g>
-        </svg>
-        <div class="steps" id="cbSteps"><button>1</button><button>2</button><button>3</button><button>4</button></div>
-        <p id="cbText" style="font-size:14.5px;margin-top:8px;min-height:62px"></p>
-      </div>
+        </svg></div>
+      <ol class="cSteps" id="cbSteps">
+        <li><b>ATP se liga à miosina</b><span>A cabeça se solta da actina.</span></li>
+        <li><b>ATP vira ADP + fosfato</b><span>A cabeça fica preparada.</span></li>
+        <li><b>Nova ligação à actina</b><span>A cabeça se conecta outra vez.</span></li>
+        <li><b>Golpe de força</b><span>Libera o fosfato e puxa o filamento.</span></li>
+      </ol>
     </div>
   </div>
-  </div>
-  <div class="itab" data-t="2" hidden>
-
-    <div class="g2">
-      <div style="min-width:0">
-        <div class="eyebrow">Acoplamento excitação-contração</div>
-        <ol class="flow">
-          <li><b>Impulso nervoso</b><span>O neurônio motor dispara e o potencial de ação percorre a fibra e os túbulos T.</span></li>
-          <li><b>Liberação de Ca²⁺</b><span>O retículo sarcoplasmático libera cálcio no citosol.</span></li>
-          <li><b>Sítios expostos</b><span>O Ca²⁺ se liga à troponina; a tropomiosina se desloca e libera os sítios da actina.</span></li>
-          <li class="atp"><b>Pontes cruzadas</b><span>A miosina ATPase hidrolisa ATP a cada ciclo: força e encurtamento.</span></li>
-          <li class="atp"><b>Relaxamento</b><span>A Ca²⁺-ATPase do retículo bombeia o cálcio de volta, gastando ATP.</span></li>
-          <li class="atp"><b>Excitabilidade</b><span>A Na⁺/K⁺-ATPase restaura os gradientes para o próximo impulso.</span></li>
-        </ol>
-      </div>
-      <div style="min-width:0;display:flex;flex-direction:column;gap:12px">
-        <div class="box"><div class="eyebrow" style="color:var(--atp)">Três consumidores de ATP</div>
-          <table class="cmp" style="margin-top:6px"><tbody>
-            <tr><td><b>Miosina ATPase</b></td><td>Gera força. É o maior consumo durante a contração.</td></tr>
-            <tr><td><b>Ca²⁺-ATPase</b></td><td>Recolhe o cálcio e permite o relaxamento.</td></tr>
-            <tr><td><b>Na⁺/K⁺-ATPase</b></td><td>Mantém a fibra pronta para novos impulsos.</td></tr>
-          </tbody></table></div>
-        <div class="box"><div class="eyebrow" style="color:var(--atp)">Quanto vale um ATP</div>
-          <p style="margin-top:6px;font-size:15px">Em condições-padrão, a hidrólise libera cerca de <b>−30,5 kJ/mol</b>. Dentro da célula, com as concentrações reais de ATP, ADP e P<sub>i</sub>, a energia disponível é ainda maior (em torno de <b>−50 kJ/mol</b>).</p></div>
-        <div class="box" style="background:var(--panel2)"><div class="eyebrow">Prova clássica: rigor mortis</div>
-          <p style="margin-top:6px;font-size:15px">Após a morte o ATP acaba e as cabeças de miosina ficam presas à actina: o músculo enrijece. Isso mostra que o ATP é necessário também para <b>soltar</b> a ponte cruzada, não só para gerar força.</p></div>
-      </div>
+  <div class="itab" data-t="4" hidden>
+    <div class="cg3">
+      <div class="box"><h3 class="k-atp">Miosina</h3><p>Usa ATP para produzir <b>força</b>.</p></div>
+      <div class="box"><h3 class="k-oxi">Bomba SERCA</h3><p>Devolve o cálcio ao retículo e permite o <b>relaxamento</b>.</p></div>
+      <div class="box"><h3 class="k-pcr">Bomba de sódio e potássio</h3><p>Mantém os íons em equilíbrio e a fibra pronta para <b>novos estímulos</b>.</p></div>
     </div>
+    <div class="box cRigor"><span class="eyebrow">Curiosidade · rigor mortis</span><p>Sem produção de ATP, a miosina não se desprende da actina, e o músculo enrijece.</p></div>
   </div>
   <div class="cite"><b>Fontes:</b> Hargreaves; Spriet (2020) · Nelson; Cox (2019) · trabalho do grupo, seção 4.1</div>
   
@@ -2054,10 +2065,8 @@ const qual = s => s > .5 ? "predominante" : s > .28 ? "importante" : s > .12 ? "
    SLIDE 3: ATP e pontes cruzadas
    ========================================================= */
 (function fundamentos(){
-  let hyd = false;
-  const btn = $("#atpBtn");
-  btn.onclick = () => {
-    hyd = !hyd;
+  let hyd = false, tA = 0, tB = 0;
+  function applyHyd(){
     $("#pGamma").style.transform = hyd ? "translate(78px,-14px)" : "none";
     $("#gBond").style.opacity = hyd ? 0 : 1;
     $("#pgTxt").textContent = hyd ? "Pi" : "P";
@@ -2065,9 +2074,7 @@ const qual = s => s > .5 ? "predominante" : s > .28 ? "importante" : s > .12 ? "
     $("#atpName").textContent = hyd ? "ADP + Pi" : "ATP";
     $("#burst").style.opacity = hyd ? 1 : 0;
     if (hyd) setTimeout(() => { $("#burst").style.opacity = 0; }, 700);
-    btn.textContent = hyd ? "Ressintetizar ATP" : "Hidrolisar";
-    $("#atpEq").innerHTML = hyd ? "ADP + P<sub>i</sub> → ATP <span class='muted'>(via PCr, glicólise ou oxidativo)</span>" : "ATP + H₂O → ADP + P<sub>i</sub>";
-  };
+  }
 
   // actina
   const act = $("#actin"); let html = "";
@@ -2076,30 +2083,24 @@ const qual = s => s > .5 ? "predominante" : s > .28 ? "importante" : s > .12 ? "
   }
   act.innerHTML = html;
   const STEPS = [
-    { ang:-28, reach:58, tag:"ATP", txt:"<b>1. ATP se liga à miosina.</b> A cabeça se solta da actina. Sem ATP novo ela ficaria presa (rigor)." },
-    { ang:28, reach:58, tag:"ADP + Pi", txt:"<b>2. Hidrólise do ATP.</b> ATP → ADP + P<sub>i</sub>. A energia liberada reposiciona e engatilha a cabeça." },
-    { ang:28, reach:98, tag:"ADP + Pi", txt:"<b>3. Ponte cruzada.</b> A cabeça engatilhada se liga a um novo ponto da actina." },
-    { ang:-28, reach:98, tag:"− Pi, − ADP", txt:"<b>4. Golpe de força.</b> A saída do P<sub>i</sub> dispara o movimento: a actina desliza. O ADP é liberado." },
+    { ang:-28, reach:58, tag:"ATP" },
+    { ang:28, reach:58, tag:"ADP + Pi" },
+    { ang:28, reach:98, tag:"ADP + Pi" },
+    { ang:-28, reach:98, tag:"− Pi" },
   ];
-  let step = 0, ang = -28, reach = 98, shift = 0, shiftT = 0, auto = null;
-  const btns = $$("#cbSteps button");
+  let step = 0, ang = -28, reach = 98, shift = 0, shiftT = 0;
+  const items = $$("#cbSteps li");
   function setStep(i){
-    step = i; btns.forEach((b, k) => b.classList.toggle("on", k === i));
-    $("#cbText").innerHTML = STEPS[i].txt; $("#cbTagT").textContent = STEPS[i].tag;
+    step = i; items.forEach((b, k) => b.classList.toggle("on", k === i));
+    $("#cbTagT").textContent = STEPS[i].tag;
     $("#cbTag rect").setAttribute("fill", i === 3 ? "#5f7687" : C.atp);
     if (i === 3) shiftT -= 16;
   }
-  btns.forEach((b, i) => b.onclick = () => { stopAuto(); setStep(i); });
-  function stopAuto(){ if (auto){ clearInterval(auto); auto = null; $("#cbPlay").textContent = "▶ Animar"; } }
-  $("#cbPlay").onclick = () => {
-    if (auto) return stopAuto();
-    $("#cbPlay").textContent = "❚❚ Pausar";
-    auto = setInterval(() => setStep((step + 1) % 4), 1700);
-  };
   setStep(0);
   hooks.s3 = {
-    leave: stopAuto,
     frame(dt){
+      tA += dt; if (tA > 2.8){ tA = 0; hyd = !hyd; applyHyd(); }
+      tB += dt; if (tB > 2.6){ tB = 0; setStep((step + 1) % 4); }
       const s = STEPS[step], k = 1 - Math.exp(-dt*7);
       ang = lerp(ang, s.ang, k); reach = lerp(reach, s.reach, k); shift = lerp(shift, shiftT, k);
       if (shiftT < -160){ shiftT += 160; shift += 160; }
@@ -2344,16 +2345,6 @@ const press = sel => { const b = $(sel); if (b) b.click(); };
 const setRange = (sel, v) => { const r = $(sel); r.value = v; r.dispatchEvent(new Event("input", { bubbles: true })); };
 const durVal = t => (Math.log(t) - Math.log(5))/(Math.log(3600) - Math.log(5))*1000;
 const ACTIONS = {
-  s3: [{
-    reset(){ if ($("#atpBtn").textContent !== "Hidrolisar") press("#atpBtn"); press("#cbSteps button:nth-child(1)"); },
-    list: [
-      ["hidrolisar o ATP", () => press("#atpBtn")],
-      ["refazer o ATP", () => press("#atpBtn")],
-      ["ciclo: passo 2", () => press("#cbSteps button:nth-child(2)")],
-      ["ciclo: passo 3", () => press("#cbSteps button:nth-child(3)")],
-      ["ciclo: passo 4", () => press("#cbSteps button:nth-child(4)")],
-    ],
-  }],
   s4: [{
     reset(){ press("#ckRec"); press('#glySrc [data-v="glc"]'); press('#glyInt [data-v="hi"]'); },
     list: [
