@@ -2195,7 +2195,7 @@ const qual = s => s > .5 ? "predominante" : s > .28 ? "importante" : s > .12 ? "
    SLIDE 3: ATP e pontes cruzadas
    ========================================================= */
 (function fundamentos(){
-  let hyd = false, tA = 0, tB = 0;
+  let hyd = false, tA = 0;
   function applyHyd(){
     $("#pGamma").style.transform = hyd ? "translate(78px,-14px)" : "none";
     $("#gBond").style.opacity = hyd ? 0 : 1;
@@ -2222,16 +2222,18 @@ const qual = s => s > .5 ? "predominante" : s > .28 ? "importante" : s > .12 ? "
   const items = $$("#cbSteps li");
   function setStep(i){
     step = i; items.forEach((b, k) => b.classList.toggle("on", k === i));
+    $("#cbTag").style.display = i < 0 ? "none" : "";
+    if (i < 0) return;   // início: miosina presa à actina
     $("#cbTagT").textContent = STEPS[i].tag;
     $("#cbTag rect").setAttribute("fill", i === 3 ? "#5f7687" : C.atp);
     if (i === 3) shiftT -= 16;
   }
-  setStep(0);
+  setStep(-1);
   hooks.s3 = {
+    ciclo: setStep,
     frame(dt){
       tA += dt; if (tA > 2.8){ tA = 0; hyd = !hyd; applyHyd(); }
-      tB += dt; if (tB > 2.6){ tB = 0; setStep((step + 1) % 4); }
-      const s = STEPS[step], k = 1 - Math.exp(-dt*7);
+      const s = STEPS[step] || { ang:-28, reach:98 }, k = 1 - Math.exp(-dt*7);
       ang = lerp(ang, s.ang, k); reach = lerp(reach, s.reach, k); shift = lerp(shift, shiftT, k);
       if (shiftT < -160){ shiftT += 160; shift += 160; }
       const bx = 200, by = 150, tx = bx + reach*Math.sin(ang*DEG), ty = by - reach*Math.cos(ang*DEG);
@@ -2489,6 +2491,15 @@ const durVal = t => (Math.log(t) - Math.log(5))/(Math.log(3600) - Math.log(5))*1
   });
 }
 const ACTIONS = {
+  s3: [null, null, {
+    reset(){ hooks.s3.ciclo(-1); },
+    list: [
+      ["ATP solta a miosina", () => hooks.s3.ciclo(0)],
+      ["ATP vira ADP + fosfato", () => hooks.s3.ciclo(1)],
+      ["miosina liga à actina", () => hooks.s3.ciclo(2)],
+      ["golpe de força", () => hooks.s3.ciclo(3)],
+    ],
+  }, null],
   s4: [{
     reset(){ $$("#s4 .lane").forEach(l => l.classList.remove("on")); },
     list: [
